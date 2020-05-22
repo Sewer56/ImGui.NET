@@ -335,5 +335,8 @@ namespace ImGuiNET
         {
             return MenuItem(label, string.Empty, false, enabled);
         }
+
+        public static byte ImGui_ImplDX11_Init(void* device, void* device_context) => ImGuiNative.ImGui_ImplDX11_Init(device, device_context);
+        public static byte ImGui_ImplDX9_Init(void* device) => ImGuiNative.ImGui_ImplDX9_Init(device);
     }
 }

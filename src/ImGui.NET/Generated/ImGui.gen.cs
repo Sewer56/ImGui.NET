@@ -13407,5 +13407,79 @@ namespace ImGuiNET
             }
             return ret != 0;
         }
+        public static bool ImGui_ImplDX11_CreateDeviceObjects()
+        {
+            byte ret = ImGuiNative.ImGui_ImplDX11_CreateDeviceObjects();
+            return ret != 0;
+        }
+        public static void ImGui_ImplDX11_InvalidateDeviceObjects()
+        {
+            ImGuiNative.ImGui_ImplDX11_InvalidateDeviceObjects();
+        }
+        public static void ImGui_ImplDX11_NewFrame()
+        {
+            ImGuiNative.ImGui_ImplDX11_NewFrame();
+        }
+        public static void ImGui_ImplDX11_RenderDrawData(ImDrawDataPtr draw_data)
+        {
+            ImDrawData* native_draw_data = draw_data.NativePtr;
+            ImGuiNative.ImGui_ImplDX11_RenderDrawData(native_draw_data);
+        }
+        public static void ImGui_ImplDX11_Shutdown()
+        {
+            ImGuiNative.ImGui_ImplDX11_Shutdown();
+        }
+        public static bool ImGui_ImplDX9_CreateDeviceObjects()
+        {
+            byte ret = ImGuiNative.ImGui_ImplDX9_CreateDeviceObjects();
+            return ret != 0;
+        }
+        public static void ImGui_ImplDX9_InvalidateDeviceObjects()
+        {
+            ImGuiNative.ImGui_ImplDX9_InvalidateDeviceObjects();
+        }
+        public static void ImGui_ImplDX9_NewFrame()
+        {
+            ImGuiNative.ImGui_ImplDX9_NewFrame();
+        }
+        public static void ImGui_ImplDX9_RenderDrawData(ImDrawDataPtr draw_data)
+        {
+            ImDrawData* native_draw_data = draw_data.NativePtr;
+            ImGuiNative.ImGui_ImplDX9_RenderDrawData(native_draw_data);
+        }
+        public static void ImGui_ImplDX9_Shutdown()
+        {
+            ImGuiNative.ImGui_ImplDX9_Shutdown();
+        }
+        public static void ImGui_ImplWin32_EnableDpiAwareness()
+        {
+            ImGuiNative.ImGui_ImplWin32_EnableDpiAwareness();
+        }
+        public static float ImGui_ImplWin32_GetDpiScaleForHwnd(IntPtr hwnd)
+        {
+            void* native_hwnd = (void*)hwnd.ToPointer();
+            float ret = ImGuiNative.ImGui_ImplWin32_GetDpiScaleForHwnd(native_hwnd);
+            return ret;
+        }
+        public static float ImGui_ImplWin32_GetDpiScaleForMonitor(IntPtr monitor)
+        {
+            void* native_monitor = (void*)monitor.ToPointer();
+            float ret = ImGuiNative.ImGui_ImplWin32_GetDpiScaleForMonitor(native_monitor);
+            return ret;
+        }
+        public static bool ImGui_ImplWin32_Init(IntPtr hwnd)
+        {
+            void* native_hwnd = (void*)hwnd.ToPointer();
+            byte ret = ImGuiNative.ImGui_ImplWin32_Init(native_hwnd);
+            return ret != 0;
+        }
+        public static void ImGui_ImplWin32_NewFrame()
+        {
+            ImGuiNative.ImGui_ImplWin32_NewFrame();
+        }
+        public static void ImGui_ImplWin32_Shutdown()
+        {
+            ImGuiNative.ImGui_ImplWin32_Shutdown();
+        }
     }
 }

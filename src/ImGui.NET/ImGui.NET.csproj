@@ -1,13 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Description>A .NET wrapper for the Dear ImGui library.</Description>
+    <Description>Fork of the .NET wrapper for the Dear ImGui library with support for DX9, DX11 and Win32 implementations on Windows.</Description>
     <AssemblyVersion>1.75.0</AssemblyVersion>
-    <Authors>Eric Mellino</Authors>
+    <Authors>Eric Mellino, Sewer56</Authors>
     <TargetFramework>netstandard2.0</TargetFramework>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <DebugType>portable</DebugType>
     <AssemblyName>ImGui.NET</AssemblyName>
-    <PackageId>ImGui.NET</PackageId>
+    <PackageId>ImGui.NET.DirectX</PackageId>
     <PackagePrereleaseIdentifier></PackagePrereleaseIdentifier>
     <PackageVersion>$(AssemblyVersion)$(PackagePrereleaseIdentifier)</PackageVersion>
     <PackageTags>ImGui ImGui.NET Immediate Mode GUI</PackageTags>

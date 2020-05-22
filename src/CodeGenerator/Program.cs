@@ -44,6 +44,10 @@ namespace CodeGenerator
             { "float&", "float*" },
             { "ImVec2[2]", "Vector2*" },
             { "char* []", "byte**" },
+
+            { "ID3D11Device*", "void*" },
+            { "IDirect3DDevice9*", "void*" },
+            { "ID3D11DeviceContext*", "void*" },
         };
 
         private static readonly Dictionary<string, string> s_wellKnownFieldReplacements = new Dictionary<string, string>()
@@ -100,7 +104,9 @@ namespace CodeGenerator
         private static readonly HashSet<string> s_skippedFunctions = new HashSet<string>()
         {
             "igInputText",
-            "igInputTextMultiline"
+            "igInputTextMultiline",
+            "ImGui_ImplDX11_Init",
+            "ImGui_ImplDX9_Init"
         };
 
         static void Main(string[] args)
@@ -128,6 +134,12 @@ namespace CodeGenerator
             using (JsonTextReader jr = new JsonTextReader(fs))
             {
                 functionsJson = JObject.Load(jr);
+            }
+
+            using (StreamReader fs = File.OpenText(Path.Combine(AppContext.BaseDirectory, "impl_definitions.json")))
+            using (JsonTextReader jr = new JsonTextReader(fs))
+            {
+                functionsJson.Merge(JObject.Load(jr));
             }
 
             JObject variantsJson = null;
