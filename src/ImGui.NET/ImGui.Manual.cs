@@ -338,5 +338,9 @@ namespace ImGuiNET
 
         public static byte ImGui_ImplDX11_Init(void* device, void* device_context) => ImGuiNative.ImGui_ImplDX11_Init(device, device_context);
         public static byte ImGui_ImplDX9_Init(void* device) => ImGuiNative.ImGui_ImplDX9_Init(device);
+        public static IntPtr ImGui_ImplWin32_WndProcHandler(void* hwnd, uint msg, IntPtr wParam, IntPtr lParam) => ImplWin32_WndProcHandler(hwnd, msg, wParam, lParam);
+
+        [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl, EntryPoint = "ImGui_ImplWin32_WndProcHandler")]
+        private static extern IntPtr ImplWin32_WndProcHandler(void* hwnd, uint msg, IntPtr wParam, IntPtr lParam);
     }
 }
