@@ -51,6 +51,9 @@ namespace CodeGenerator
             { "ImU8", "byte" },
             { "ImU64", "UInt64" },
 
+            { "union { int BackupInt[2]; float BackupFloat[2];}", "UnionValue"},
+            { "ImFileHandle", "void*" },
+
             { "ID3D11Device*", "void*" },
             { "IDirect3DDevice9*", "void*" },
             { "ID3D11DeviceContext*", "void*" },
@@ -1158,8 +1161,10 @@ namespace CodeGenerator
         public TypeReference(string name, string type, string templateType, EnumDefinition[] enums, string[] typeVariants)
         {
             Name = name;
-            Type = type.Replace("const", string.Empty).Trim();
+            if (String.IsNullOrEmpty(Name))
+                Name = "Value"; // Handles unions and various unexpected types.
 
+            Type = type.Replace("const", string.Empty).Trim();
 
             if (Type.StartsWith("ImVector_"))
             {

@@ -6989,12 +6989,12 @@ namespace ImGuiNET
             float ret = ImGuiNative.igImDot(a, b);
             return ret;
         }
-        public static bool ImFileClose(ImFileHandle file)
+        public static bool ImFileClose(void* file)
         {
             byte ret = ImGuiNative.igImFileClose(file);
             return ret != 0;
         }
-        public static UInt64 ImFileGetSize(ImFileHandle file)
+        public static UInt64 ImFileGetSize(void* file)
         {
             UInt64 ret = ImGuiNative.igImFileGetSize(file);
             return ret;
@@ -7155,7 +7155,7 @@ namespace ImGuiNET
                 return (IntPtr)ret;
             }
         }
-        public static ImFileHandle ImFileOpen(string filename, string mode)
+        public static void* ImFileOpen(string filename, string mode)
         {
             byte* native_filename;
             int filename_byteCount = 0;
@@ -7193,7 +7193,7 @@ namespace ImGuiNET
                 native_mode[native_mode_offset] = 0;
             }
             else { native_mode = null; }
-            ImFileHandle ret = ImGuiNative.igImFileOpen(native_filename, native_mode);
+            void* ret = ImGuiNative.igImFileOpen(native_filename, native_mode);
             if (filename_byteCount > Util.StackAllocationSizeLimit)
             {
                 Util.Free(native_filename);
@@ -7204,13 +7204,13 @@ namespace ImGuiNET
             }
             return ret;
         }
-        public static UInt64 ImFileRead(IntPtr data, UInt64 size, UInt64 count, ImFileHandle file)
+        public static UInt64 ImFileRead(IntPtr data, UInt64 size, UInt64 count, void* file)
         {
             void* native_data = (void*)data.ToPointer();
             UInt64 ret = ImGuiNative.igImFileRead(native_data, size, count, file);
             return ret;
         }
-        public static UInt64 ImFileWrite(IntPtr data, UInt64 size, UInt64 count, ImFileHandle file)
+        public static UInt64 ImFileWrite(IntPtr data, UInt64 size, UInt64 count, void* file)
         {
             void* native_data = (void*)data.ToPointer();
             UInt64 ret = ImGuiNative.igImFileWrite(native_data, size, count, file);

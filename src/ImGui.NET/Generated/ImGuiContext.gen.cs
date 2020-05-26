@@ -165,7 +165,7 @@ namespace ImGuiNET
         public ImChunkStream_ImGuiWindowSettings SettingsWindows;
         public byte LogEnabled;
         public ImGuiLogType LogType;
-        public ImFileHandle LogFile;
+        public void* LogFile;
         public ImGuiTextBuffer LogBuffer;
         public float LogLinePosY;
         public byte LogLineFirstItem;
@@ -348,7 +348,7 @@ namespace ImGuiNET
         public ref ImChunkStream_ImGuiWindowSettings SettingsWindows => ref Unsafe.AsRef<ImChunkStream_ImGuiWindowSettings>(&NativePtr->SettingsWindows);
         public ref bool LogEnabled => ref Unsafe.AsRef<bool>(&NativePtr->LogEnabled);
         public ref ImGuiLogType LogType => ref Unsafe.AsRef<ImGuiLogType>(&NativePtr->LogType);
-        public ref ImFileHandle LogFile => ref Unsafe.AsRef<ImFileHandle>(&NativePtr->LogFile);
+        public IntPtr LogFile { get => (IntPtr)NativePtr->LogFile; set => NativePtr->LogFile = (void*)value; }
         public ref ImGuiTextBuffer LogBuffer => ref Unsafe.AsRef<ImGuiTextBuffer>(&NativePtr->LogBuffer);
         public ref float LogLinePosY => ref Unsafe.AsRef<float>(&NativePtr->LogLinePosY);
         public ref bool LogLineFirstItem => ref Unsafe.AsRef<bool>(&NativePtr->LogLineFirstItem);
