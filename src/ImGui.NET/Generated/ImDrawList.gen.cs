@@ -289,15 +289,15 @@ namespace ImGuiNET
         {
             ImGuiNative.ImDrawList_destroy(NativePtr);
         }
-        public Vector2 GetClipRectMax()
+        public void GetClipRectMax(ImDrawListPtr self)
         {
-            Vector2 ret = ImGuiNative.ImDrawList_GetClipRectMax(NativePtr);
-            return ret;
+            ImDrawList* native_self = self.NativePtr;
+            ImGuiNative.ImDrawList_GetClipRectMax(NativePtr, native_self);
         }
-        public Vector2 GetClipRectMin()
+        public void GetClipRectMin(ImDrawListPtr self)
         {
-            Vector2 ret = ImGuiNative.ImDrawList_GetClipRectMin(NativePtr);
-            return ret;
+            ImDrawList* native_self = self.NativePtr;
+            ImGuiNative.ImDrawList_GetClipRectMin(NativePtr, native_self);
         }
         public void PathArcTo(Vector2 center, float radius, float a_min, float a_max)
         {

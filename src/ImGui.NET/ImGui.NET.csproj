@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <Description>Fork of the .NET wrapper for the Dear ImGui library with support for DX9, DX11 and Win32 implementations on Windows.</Description>
-    <AssemblyVersion>1.75.1</AssemblyVersion>
+    <AssemblyVersion>1.75.2</AssemblyVersion>
     <Authors>Eric Mellino, Sewer56</Authors>
     <TargetFramework>netstandard2.0</TargetFramework>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>

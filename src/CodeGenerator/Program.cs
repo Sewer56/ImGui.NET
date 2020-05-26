@@ -45,6 +45,12 @@ namespace CodeGenerator
             { "ImVec2[2]", "Vector2*" },
             { "char* []", "byte**" },
 
+            { "unsigned char[256]", "byte*" },
+            { "signed char", "sbyte" },
+            { "ImS8", "sbyte" },
+            { "ImU8", "byte" },
+            { "ImU64", "UInt64" },
+
             { "ID3D11Device*", "void*" },
             { "IDirect3DDevice9*", "void*" },
             { "ID3D11DeviceContext*", "void*" },

@@ -22,16 +22,16 @@ namespace ImGuiNET
         {
             ImGuiNative.ImColor_destroy(NativePtr);
         }
-        public ImColor HSV(float h, float s, float v)
+        public void HSV(ImColorPtr self, float h, float s, float v)
         {
+            ImColor* native_self = self.NativePtr;
             float a = 1.0f;
-            ImColor ret = ImGuiNative.ImColor_HSV(NativePtr, h, s, v, a);
-            return ret;
+            ImGuiNative.ImColor_HSV(NativePtr, native_self, h, s, v, a);
         }
-        public ImColor HSV(float h, float s, float v, float a)
+        public void HSV(ImColorPtr self, float h, float s, float v, float a)
         {
-            ImColor ret = ImGuiNative.ImColor_HSV(NativePtr, h, s, v, a);
-            return ret;
+            ImColor* native_self = self.NativePtr;
+            ImGuiNative.ImColor_HSV(NativePtr, native_self, h, s, v, a);
         }
         public void SetHSV(float h, float s, float v)
         {
